@@ -6,22 +6,7 @@ part of 'yt_ctrl.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$yTCtrlHash() => r'f078706bf786b6fffd7ab1d7a9200b6370b7c477';
-
-/// See also [YTCtrl].
-@ProviderFor(YTCtrl)
-final yTCtrlProvider =
-    AutoDisposeNotifierProvider<YTCtrl, List<String>>.internal(
-      YTCtrl.new,
-      name: r'yTCtrlProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product') ? null : _$yTCtrlHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$YTCtrl = AutoDisposeNotifier<List<String>>;
-String _$yTMetaCtrlHash() => r'f7231ad4a0c4f220cb9a570950b2cb35acbc38d5';
+String _$channelDetailsHash() => r'31ded5dc430344effc8f12c70277aea059ab714e';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -44,31 +29,25 @@ class _SystemHash {
   }
 }
 
-abstract class _$YTMetaCtrl extends BuildlessAutoDisposeAsyncNotifier<Video> {
-  late final String id;
+/// See also [channelDetails].
+@ProviderFor(channelDetails)
+const channelDetailsProvider = ChannelDetailsFamily();
 
-  FutureOr<Video> build(String id);
-}
+/// See also [channelDetails].
+class ChannelDetailsFamily extends Family<AsyncValue<Channel>> {
+  /// See also [channelDetails].
+  const ChannelDetailsFamily();
 
-/// See also [YTMetaCtrl].
-@ProviderFor(YTMetaCtrl)
-const yTMetaCtrlProvider = YTMetaCtrlFamily();
-
-/// See also [YTMetaCtrl].
-class YTMetaCtrlFamily extends Family<AsyncValue<Video>> {
-  /// See also [YTMetaCtrl].
-  const YTMetaCtrlFamily();
-
-  /// See also [YTMetaCtrl].
-  YTMetaCtrlProvider call(String id) {
-    return YTMetaCtrlProvider(id);
+  /// See also [channelDetails].
+  ChannelDetailsProvider call(String channelId) {
+    return ChannelDetailsProvider(channelId);
   }
 
   @override
-  YTMetaCtrlProvider getProviderOverride(
-    covariant YTMetaCtrlProvider provider,
+  ChannelDetailsProvider getProviderOverride(
+    covariant ChannelDetailsProvider provider,
   ) {
-    return call(provider.id);
+    return call(provider.channelId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -83,74 +62,71 @@ class YTMetaCtrlFamily extends Family<AsyncValue<Video>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'yTMetaCtrlProvider';
+  String? get name => r'channelDetailsProvider';
 }
 
-/// See also [YTMetaCtrl].
-class YTMetaCtrlProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<YTMetaCtrl, Video> {
-  /// See also [YTMetaCtrl].
-  YTMetaCtrlProvider(String id)
+/// See also [channelDetails].
+class ChannelDetailsProvider extends AutoDisposeFutureProvider<Channel> {
+  /// See also [channelDetails].
+  ChannelDetailsProvider(String channelId)
     : this._internal(
-        () => YTMetaCtrl()..id = id,
-        from: yTMetaCtrlProvider,
-        name: r'yTMetaCtrlProvider',
+        (ref) => channelDetails(ref as ChannelDetailsRef, channelId),
+        from: channelDetailsProvider,
+        name: r'channelDetailsProvider',
         debugGetCreateSourceHash:
             const bool.fromEnvironment('dart.vm.product')
                 ? null
-                : _$yTMetaCtrlHash,
-        dependencies: YTMetaCtrlFamily._dependencies,
-        allTransitiveDependencies: YTMetaCtrlFamily._allTransitiveDependencies,
-        id: id,
+                : _$channelDetailsHash,
+        dependencies: ChannelDetailsFamily._dependencies,
+        allTransitiveDependencies:
+            ChannelDetailsFamily._allTransitiveDependencies,
+        channelId: channelId,
       );
 
-  YTMetaCtrlProvider._internal(
+  ChannelDetailsProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.id,
+    required this.channelId,
   }) : super.internal();
 
-  final String id;
+  final String channelId;
 
   @override
-  FutureOr<Video> runNotifierBuild(covariant YTMetaCtrl notifier) {
-    return notifier.build(id);
-  }
-
-  @override
-  Override overrideWith(YTMetaCtrl Function() create) {
+  Override overrideWith(
+    FutureOr<Channel> Function(ChannelDetailsRef provider) create,
+  ) {
     return ProviderOverride(
       origin: this,
-      override: YTMetaCtrlProvider._internal(
-        () => create()..id = id,
+      override: ChannelDetailsProvider._internal(
+        (ref) => create(ref as ChannelDetailsRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        id: id,
+        channelId: channelId,
       ),
     );
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<YTMetaCtrl, Video> createElement() {
-    return _YTMetaCtrlProviderElement(this);
+  AutoDisposeFutureProviderElement<Channel> createElement() {
+    return _ChannelDetailsProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is YTMetaCtrlProvider && other.id == id;
+    return other is ChannelDetailsProvider && other.channelId == channelId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, channelId.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -158,19 +134,33 @@ class YTMetaCtrlProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin YTMetaCtrlRef on AutoDisposeAsyncNotifierProviderRef<Video> {
-  /// The parameter `id` of this provider.
-  String get id;
+mixin ChannelDetailsRef on AutoDisposeFutureProviderRef<Channel> {
+  /// The parameter `channelId` of this provider.
+  String get channelId;
 }
 
-class _YTMetaCtrlProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<YTMetaCtrl, Video>
-    with YTMetaCtrlRef {
-  _YTMetaCtrlProviderElement(super.provider);
+class _ChannelDetailsProviderElement
+    extends AutoDisposeFutureProviderElement<Channel>
+    with ChannelDetailsRef {
+  _ChannelDetailsProviderElement(super.provider);
 
   @override
-  String get id => (origin as YTMetaCtrlProvider).id;
+  String get channelId => (origin as ChannelDetailsProvider).channelId;
 }
 
+String _$yTCtrlHash() => r'b8ef0a796035309aaeec2135e05a2c95138708d9';
+
+/// See also [YTCtrl].
+@ProviderFor(YTCtrl)
+final yTCtrlProvider = AutoDisposeNotifierProvider<YTCtrl, YTData>.internal(
+  YTCtrl.new,
+  name: r'yTCtrlProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$yTCtrlHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$YTCtrl = AutoDisposeNotifier<YTData>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

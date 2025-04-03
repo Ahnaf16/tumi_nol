@@ -35,6 +35,9 @@ extension ContextEx on BuildContext {
 
   Layouts get layout => Layouts.of(this);
 
-  //?? TR
-  // Str get str => Str(this);
+  bool get isTn => breakpoint == theme.breakpoints.tn;
+  bool get isSm => breakpoint == theme.breakpoints.sm;
+  bool get isMd => breakpoint == theme.breakpoints.md;
+  bool get isLg => breakpoint == theme.breakpoints.lg;
+  bool get isXl => breakpoint == theme.breakpoints.xl;
 }
