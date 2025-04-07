@@ -8,5 +8,4 @@ export '_styled_widgets/_styled_widgets.dart';
 export '_widgets/_widgets.dart';
 export 'locator.dart';
 export 'models/models.dart';
-export 'routes/routes.dart';
 export 'theme/theme.dart';

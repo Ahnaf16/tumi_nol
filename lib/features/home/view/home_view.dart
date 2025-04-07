@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tumi_nol/features/home/controller/yt_ctrl.dart';
 import 'package:tumi_nol/features/home/view/video_list_view.dart';
-import 'package:tumi_nol/features/home/view/video_view.dart';
+import 'package:tumi_nol/features/video_view/video_view.dart';
 import 'package:tumi_nol/main.export.dart';
 
 class HomeView extends HookConsumerWidget {
@@ -23,12 +23,17 @@ class HomeView extends HookConsumerWidget {
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
-                if (loading.value) Padding(padding: Pads.sm('lr'), child: const ShadProgress(minHeight: 1)),
                 ShadInput(
                   controller: txtCtrl,
                   placeholder: const Text('Enter video/playlist url'),
                   trailing: ShadButton(
-                    child: const Icon(LuIcons.arrowRight),
+                    leading:
+                        loading.value
+                            ? const SizedBox.square(
+                              dimension: 18,
+                              child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                            )
+                            : null,
                     onPressed: () async {
                       loading.toggle();
                       final data = await ctrl().submitUrl(txtCtrl.text);
@@ -47,6 +52,7 @@ class HomeView extends HookConsumerWidget {
                         await context.push(route);
                       }
                     },
+                    child: const Icon(LuIcons.arrowRight),
                   ),
                 ),
               ],

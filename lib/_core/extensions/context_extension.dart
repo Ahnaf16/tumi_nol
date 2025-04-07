@@ -40,4 +40,7 @@ extension ContextEx on BuildContext {
   bool get isMd => breakpoint == theme.breakpoints.md;
   bool get isLg => breakpoint == theme.breakpoints.lg;
   bool get isXl => breakpoint == theme.breakpoints.xl;
+
+  ShadDecoration get decoBorder =>
+      ShadDecoration(border: ShadBorder.all(color: colors.border, width: 1, radius: theme.radius));
 }

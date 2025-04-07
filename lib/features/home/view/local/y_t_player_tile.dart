@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tumi_nol/_core/extensions/extra_ex.dart';
 import 'package:tumi_nol/features/home/controller/yt_ctrl.dart';
 import 'package:tumi_nol/features/home/repository/yt_downloader.dart';
-import 'package:tumi_nol/features/home/view/player.dart';
+import 'package:tumi_nol/features/home/view/local/player.dart';
 import 'package:tumi_nol/main.export.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
