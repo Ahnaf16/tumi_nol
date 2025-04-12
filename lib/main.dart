@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tumi_nol/_core/storage/hive_db.dart';
 import 'package:tumi_nol/features/home/Playlist/view/playlist_view.dart';
 import 'package:tumi_nol/features/home/view/home_view.dart';
 import 'package:tumi_nol/main.export.dart';
@@ -8,7 +9,9 @@ final navKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await HiveDb.init();
   await setupLocator();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

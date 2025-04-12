@@ -46,7 +46,7 @@ class HostedImage extends StatelessWidget {
         heroTag: tag ?? img.toString(),
         fit: fit,
         errorPlaceholder: Icon(errorIcon ?? Icons.error, color: Colors.redAccent),
-        placeholder: const SizedBox.square(dimension: 20, child: CircularProgressIndicator()),
+        placeholder: const Center(child: SizedBox.square(dimension: 20, child: CircularProgressIndicator())),
       ),
     );
   }

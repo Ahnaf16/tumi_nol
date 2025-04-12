@@ -39,11 +39,11 @@ class HomeView extends HookConsumerWidget {
                       final data = await ctrl().submitUrl(txtCtrl.text);
                       loading.toggle();
                       if (data == null) return;
-
                       if (!context.mounted) return;
+                      final YTData(:playlist, :videos) = data;
 
-                      if (data.isPlaylist) {
-                        final route = YTPlayListView(videos: data.videos, playlist: data.playlist);
+                      if (playlist != null) {
+                        final route = YTPlayListView(videos: data.videos, playlist: playlist);
                         await context.push(route);
                       } else {
                         final first = data.videos.firstOrNull;

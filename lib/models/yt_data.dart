@@ -19,7 +19,7 @@ class YTData {
     return copyWith(videos: videos.where((e) => e.id.value != id).toList());
   }
 
-  bool get isPlaylist => playlist != null;
+  // bool get isPlaylist => playlist != null;
 
   bool get isNotEmpty => videos.isNotEmpty;
   int get length => videos.length;
