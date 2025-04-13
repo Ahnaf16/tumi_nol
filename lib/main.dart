@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tumi_nol/_core/storage/hive_db.dart';
 import 'package:tumi_nol/features/home/Playlist/view/playlist_view.dart';
 import 'package:tumi_nol/features/home/view/home_view.dart';
@@ -22,16 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadApp.material(
       navigatorKey: navKey,
-      darkTheme: ShadThemeData(
-        brightness: Brightness.dark,
-        colorScheme: const ShadRoseColorScheme.dark(),
-        textTheme: ShadTextTheme.fromGoogleFont(GoogleFonts.jetBrainsMono),
-      ),
-      theme: ShadThemeData(
-        brightness: Brightness.light,
-        colorScheme: const ShadRoseColorScheme.light(),
-        textTheme: ShadTextTheme.fromGoogleFont(GoogleFonts.jetBrainsMono),
-      ),
+      darkTheme: theme(false),
+      theme: theme(true),
       builder: (context, child) => Layouts.init(context, child),
       home: const NavRoot(),
     );

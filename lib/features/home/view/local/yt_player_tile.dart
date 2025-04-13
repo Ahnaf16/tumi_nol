@@ -23,7 +23,6 @@ class YTPlayerTile extends HookConsumerWidget {
     final listCtrl = useCallback(() => ref.read(yTCtrlProvider.notifier));
 
     return ShadCard(
-      padding: Pads.padding(padding: Insets.sm),
       backgroundColor: context.colors.background,
       child: Flex(
         direction: context.isTn ? Axis.vertical : Axis.horizontal,

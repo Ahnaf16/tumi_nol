@@ -24,7 +24,7 @@ class Player extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final showingCtrls = useState(false);
-    final width = useState(context.width * .7);
+    final width = useState(context.breakpoint < context.theme.breakpoints.md ? context.width : context.width * .7);
 
     useValueChanged(width, (_, _) => onWidthChange?.call(width.value));
 
@@ -94,6 +94,8 @@ class _FullPlayerCtrl extends HookWidget {
   Widget build(BuildContext context) {
     final volCtrl = useMemoized(() => ShadSliderController(initialValue: 100));
 
+    final sml = context.breakpoint < context.theme.breakpoints.md;
+
     return ValueListenableBuilder(
       valueListenable: videoCtrl,
       builder: (context, v, _) {
@@ -104,7 +106,7 @@ class _FullPlayerCtrl extends HookWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ShadCard(
-                padding: Pads.sm(),
+                padding: sml ? Pads.xs() : Pads.sm(),
                 backgroundColor: context.colors.background.op8,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -115,8 +117,9 @@ class _FullPlayerCtrl extends HookWidget {
 
                     //! PLAY ---
                     ShadButton(
-                      height: 50,
-                      width: 50,
+                      height: sml ? 35 : 50,
+                      width: sml ? 35 : 50,
+                      padding: Pads.xs(),
                       backgroundColor: context.colors.primary.op6,
                       decoration: ShadDecoration(border: ShadBorder.all(radius: Corners.circleBorder)),
                       onPressed: () {
@@ -139,7 +142,7 @@ class _FullPlayerCtrl extends HookWidget {
 
                     const Gap(Insets.sm),
                     SizedBox(
-                      width: 80,
+                      width: sml ? 65 : 80,
                       child: ShadSlider(
                         controller: volCtrl,
                         max: 100,

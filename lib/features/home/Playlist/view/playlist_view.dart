@@ -9,6 +9,8 @@ class PlaylistView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final playlistData = ref.watch(playListCtrlProvider);
     final ctrl = useCallback(() => ref.read(playListCtrlProvider.notifier));
+    final sml = context.breakpoint < context.theme.breakpoints.md;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Playlist')),
       body: Padding(
@@ -34,45 +36,44 @@ class PlaylistView extends HookConsumerWidget {
               itemBuilder: (context, index) {
                 final pl = playlists[index];
                 return ShadCard(
-                  child: Row(
+                  child: Flex(
+                    direction: sml ? Axis.vertical : Axis.horizontal,
                     spacing: Insets.med,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      HostedImage(pl.thumbnail, width: 300),
-                      Expanded(
-                        child: Column(
-                          spacing: Insets.sm,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(pl.title, style: context.text.large),
-                            Row(
-                              spacing: Insets.sm,
-                              children: [
-                                Text(pl.author),
-                                ShadCard(
-                                  height: 8,
-                                  width: 8,
-                                  padding: Pads.zero,
-                                  backgroundColor: context.colors.foreground.op5,
-                                ),
-                                Text(pl.created.timeAgo()),
-                              ],
-                            ),
-                            Text('${pl.videoCount} videos'),
-                            Row(
-                              spacing: Insets.sm,
-                              children: [
-                                ShadButton.outline(child: const Icon(LuIcons.play), onPressed: () {}),
-                                ShadButton.outline(child: const Icon(LuIcons.shuffle), onPressed: () {}),
-                                ShadButton.outline(
-                                  child: const Icon(LuIcons.trash),
-                                  onPressed: () => ctrl().deletePlayList(pl.id),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                      HostedImage(pl.thumbnail, width: sml ? context.width : 300),
+                      Column(
+                        spacing: Insets.sm,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(pl.title, style: context.text.large),
+                          Row(
+                            spacing: Insets.sm,
+                            children: [
+                              Text(pl.author),
+                              ShadCard(
+                                height: 8,
+                                width: 8,
+                                padding: Pads.zero,
+                                backgroundColor: context.colors.foreground.op5,
+                              ),
+                              Text(pl.created.timeAgo()),
+                            ],
+                          ),
+                          Text('${pl.videoCount} videos'),
+                          Row(
+                            spacing: Insets.sm,
+                            children: [
+                              ShadButton.outline(child: const Icon(LuIcons.play), onPressed: () {}),
+                              ShadButton.outline(child: const Icon(LuIcons.shuffle), onPressed: () {}),
+                              ShadButton.outline(
+                                child: const Icon(LuIcons.trash),
+                                onPressed: () => ctrl().deletePlayList(pl.id),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ).conditionalExpanded(!sml),
                     ],
                   ),
                 );
