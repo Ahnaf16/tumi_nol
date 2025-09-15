@@ -29,8 +29,8 @@ It aims to provide both online playback and offline playlist management in a sim
 - **Framework:** [Flutter](https://flutter.dev)  
 - **UI:** [ShadCN UI for Flutter](https://pub.dev/packages/shadcn_ui)  
 - **State Management:** Riverpod
-- **for YouTube:**  
-  - `youtube_explode_dart`  
+- **Database:** Drift
+- **for YouTube:** youtube_explode_dart
 
 ---
 
