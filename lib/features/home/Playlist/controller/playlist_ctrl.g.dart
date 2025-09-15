@@ -6,22 +6,51 @@ part of 'playlist_ctrl.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$playListCtrlHash() => r'008493fba4927d15cb77b184c13fdaf804ee7df2';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [PlayListCtrl].
 @ProviderFor(PlayListCtrl)
-final playListCtrlProvider =
-    AutoDisposeAsyncNotifierProvider<PlayListCtrl, List<PlaylistData>>.internal(
-      PlayListCtrl.new,
-      name: r'playListCtrlProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$playListCtrlHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+const playListCtrlProvider = PlayListCtrlProvider._();
 
-typedef _$PlayListCtrl = AutoDisposeAsyncNotifier<List<PlaylistData>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class PlayListCtrlProvider
+    extends $AsyncNotifierProvider<PlayListCtrl, List<PlaylistData>> {
+  const PlayListCtrlProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'playListCtrlProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$playListCtrlHash();
+
+  @$internal
+  @override
+  PlayListCtrl create() => PlayListCtrl();
+}
+
+String _$playListCtrlHash() => r'ada2ba1972ec49c5ad6a23cb9bac3b108388721e';
+
+abstract class _$PlayListCtrl extends $AsyncNotifier<List<PlaylistData>> {
+  FutureOr<List<PlaylistData>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref =
+        this.ref as $Ref<AsyncValue<List<PlaylistData>>, List<PlaylistData>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<PlaylistData>>, List<PlaylistData>>,
+              AsyncValue<List<PlaylistData>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

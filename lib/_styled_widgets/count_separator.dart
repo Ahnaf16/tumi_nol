@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tumi_nol/_styled_widgets/deco_container.dart';
 import 'package:tumi_nol/main.export.dart';
 
 class CountSeparator extends StatelessWidget {

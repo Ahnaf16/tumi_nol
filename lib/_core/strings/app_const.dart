@@ -5,3 +5,5 @@ import 'package:flutter/material.dart';
 const kScrollPhysics = AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics());
 
 String kError([String? errorOn]) => 'Something went wrong ${kDebugMode ? '[${errorOn ?? ''}]' : ''}';
+
+const kAppName = 'Tumi Nol';

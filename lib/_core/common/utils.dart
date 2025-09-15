@@ -12,7 +12,7 @@ Null identityNull<T>(T a) => null;
 
 class Copier {
   const Copier._();
-  static copy(String? text) {
+  static void copy(String? text) {
     if (text == null) return;
     Clipboard.setData(ClipboardData(text: text));
     HapticFeedback.mediumImpact();

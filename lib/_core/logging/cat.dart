@@ -57,7 +57,7 @@ class LogHelper {
   AnsiColor get ansi => AnsiColor();
 
   String stackTrace(StackTrace stackTrace) {
-    StringBuffer buffer = StringBuffer();
+    final StringBuffer buffer = StringBuffer();
 
     stackTrace.toString().split('\n').forEach((element) {
       buffer.write('$element\n');
@@ -66,7 +66,7 @@ class LogHelper {
   }
 
   String jsonMap(int l, dynamic json) {
-    StringBuffer buffer = StringBuffer();
+    final StringBuffer buffer = StringBuffer();
 
     if (json is Map) {
       json.entries.toList().asMap().forEach((index, entry) {
@@ -110,7 +110,7 @@ class LogHelper {
   }
 
   String jsonList(int l, List list) {
-    StringBuffer buffer = StringBuffer();
+    final StringBuffer buffer = StringBuffer();
 
     for (int i = 0; i < list.length; i++) {
       final item = list[i];
