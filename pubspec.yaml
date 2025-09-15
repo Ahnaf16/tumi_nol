@@ -36,7 +36,6 @@ dependencies:
   file_selector: ^1.0.3
   super_sliver_list: ^0.4.1
   draggable_menu: ^4.4.1
-
   collection: any
   drift: ^2.28.1
   drift_flutter: ^0.2.6

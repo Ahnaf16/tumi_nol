@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tumi_nol/_core/extensions/extra_ex.dart';
 import 'package:tumi_nol/features/home/controller/yt_ctrl.dart';
 import 'package:tumi_nol/features/home/repository/yt_downloader.dart';
 import 'package:tumi_nol/features/home/view/local/player.dart';
@@ -80,7 +79,9 @@ class YTPlayerTile extends HookConsumerWidget {
                   Text(video.author, style: context.text.muted.size(12)),
                   if (video.publishDate != null) Text(video.publishDate!.timeAgo(), style: context.text.muted.size(12)),
                   Text((video.duration ?? v.metaData.duration).format(), style: context.text.muted.size(12)),
+                  const Gap(Insets.xs),
                   Row(
+                    spacing: Insets.med,
                     children: [
                       ShadButton(
                         child: const Icon(LuIcons.download),

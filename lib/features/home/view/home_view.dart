@@ -27,13 +27,12 @@ class HomeView extends HookConsumerWidget {
                   controller: txtCtrl,
                   placeholder: const Text('Enter video/playlist url'),
                   trailing: ShadButton(
-                    leading:
-                        loading.value
-                            ? const SizedBox.square(
-                              dimension: 18,
-                              child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
-                            )
-                            : null,
+                    leading: loading.value
+                        ? const SizedBox.square(
+                            dimension: 18,
+                            child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                          )
+                        : null,
                     onPressed: () async {
                       loading.toggle();
                       final data = await ctrl().submitUrl(txtCtrl.text);
@@ -58,19 +57,19 @@ class HomeView extends HookConsumerWidget {
               ],
             ),
 
-            Row(
-              children: [
-                ShadButton.link(
-                  child: const Text('video'),
-                  onPressed: () => txtCtrl.text = 'https://www.youtube.com/watch?v=vK1CzLBEAkA',
-                ),
-                ShadButton.link(
-                  child: const Text('playlist'),
-                  onPressed:
-                      () => txtCtrl.text = 'https://www.youtube.com/playlist?list=PL2KpGf-puYLbOTmqaDE9vKHnTDz77BVIs',
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     ShadButton.link(
+            //       child: const Text('video'),
+            //       onPressed: () => txtCtrl.text = 'https://www.youtube.com/watch?v=vK1CzLBEAkA',
+            //     ),
+            //     ShadButton.link(
+            //       child: const Text('playlist'),
+            //       onPressed: () =>
+            //           txtCtrl.text = 'https://www.youtube.com/playlist?list=PL2KpGf-puYLbOTmqaDE9vKHnTDz77BVIs',
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

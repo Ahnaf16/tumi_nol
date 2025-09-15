@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId = "com.marj.tumi_nol"
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = 35
         versionCode = flutter.versionCode
         versionName = flutter.versionName
