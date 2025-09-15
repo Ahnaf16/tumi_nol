@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
-import 'package:tumi_nol/features/home/Playlist/controller/playlist_ctrl.dart';
+import 'package:tumi_nol/features/Playlist/controller/playlist_ctrl.dart';
 import 'package:tumi_nol/features/home/view/local/yt_player_tile.dart';
 import 'package:tumi_nol/main.export.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';

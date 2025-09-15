@@ -8,7 +8,7 @@ import 'package:tumi_nol/main.export.dart';
 
 part 'database.g.dart';
 
-@DriftDatabase(tables: [Videos])
+@DriftDatabase(tables: [VideoDatas, PlaylistDatas])
 class Database extends _$Database {
   Database() : super(_openConnection());
 

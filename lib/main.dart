@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tumi_nol/features/home/Playlist/view/playlist_view.dart';
+import 'package:tumi_nol/features/Playlist/view/playlist_view.dart';
 import 'package:tumi_nol/features/home/view/home_view.dart';
 import 'package:tumi_nol/main.export.dart';
 

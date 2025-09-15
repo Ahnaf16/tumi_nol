@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tumi_nol/features/home/Playlist/controller/playlist_ctrl.dart';
+import 'package:tumi_nol/features/Playlist/controller/playlist_ctrl.dart';
 import 'package:tumi_nol/main.export.dart';
 
 class PlaylistView extends HookConsumerWidget {
@@ -57,7 +57,7 @@ class PlaylistView extends HookConsumerWidget {
                                 padding: Pads.zero,
                                 backgroundColor: context.colors.foreground.op5,
                               ),
-                              Text(pl.created.timeAgo()),
+                              Text(pl.createdAt.timeAgo()),
                             ],
                           ),
                           Text('${pl.videoCount} videos'),

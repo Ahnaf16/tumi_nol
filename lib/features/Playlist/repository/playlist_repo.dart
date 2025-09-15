@@ -1,20 +1,7 @@
 import 'package:tumi_nol/main.export.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
-class PlayListRepo {
-  // Future<Box<PlaylistData>> get _getBox async {
-  //   final isOpen = Hive.isBoxOpen(HiveDb.playList);
-  //   Box<PlaylistData> box;
-
-  //   if (isOpen) {
-  //     box = Hive.box(HiveDb.playList);
-  //   } else {
-  //     box = await Hive.openBox<PlaylistData>(HiveDb.playList);
-  //   }
-
-  //   return box;
-  // }
-
+class PlayListRepo with Repo {
   Future<List<PlaylistData>> playList() async {
     return [];
     // final box = await _getBox;

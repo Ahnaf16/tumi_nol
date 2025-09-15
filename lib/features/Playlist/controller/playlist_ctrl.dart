@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tumi_nol/features/home/Playlist/repository/playlist_repo.dart';
+import 'package:tumi_nol/features/Playlist/repository/playlist_repo.dart';
 import 'package:tumi_nol/features/home/repository/yt_repo.dart';
 import 'package:tumi_nol/main.export.dart';
 
@@ -12,7 +12,8 @@ class PlayListCtrl extends _$PlayListCtrl {
 
   @override
   FutureOr<List<PlaylistData>> build() {
-    return _repo.playList();
+    // return _repo.playList();
+    return [];
   }
 
   Future<void> saveToPlayList(String id, String videoId) async {

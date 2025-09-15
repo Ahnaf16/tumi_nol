@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tumi_nol/features/home/Playlist/repository/playlist_repo.dart';
+import 'package:tumi_nol/features/Playlist/repository/playlist_repo.dart';
 import 'package:tumi_nol/main.export.dart';
 
 part 'playlist_video_ctrl.g.dart';
